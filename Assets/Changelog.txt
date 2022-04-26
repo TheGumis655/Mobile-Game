@@ -1,0 +1,19 @@
+#0.0.0.4
+-Added PlayFab service
+-Added Login/Register Script
+-Chenged Enemy Spawn Area to Enemy Spawn Point
+#0.0.0.3
+-Created Monets 
+-Created First Enemy
+-Added spawning areas
+-Added Joystick to move on mobile device
+#0.0.0.2
+-Created prefabs of animated objects
+-Created layouts of different map materials
+-Created Statistics of player in Inventory UI
+#0.0.0.1
+-Created first scene
+-Added basic graphics
+-Addes simple animation to player
+-Added movement to player
+-Created UI for Inventory

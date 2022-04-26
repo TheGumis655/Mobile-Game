@@ -23,16 +23,15 @@ public class Mob_Spawn_Area0Spawning_Enemies : MonoBehaviour
 
     void Start()
     {
-        point_to_move_towards.Add(Area_To_Spawn_In.position);
+        
         Mob_RigidBody = Mob_To_Spawn.GetComponent<Rigidbody2D>();
         StartCoroutine(Spawning());
 
         for (int a = 0; a < Max_Enemies_In; a++)
         {
-            point_to_move_towards.Add(Area_To_Spawn_In.transform.position);
+           point_to_move_towards.Add(new Vector3(Random.Range(Area_To_Spawn_In.transform.position.x - OffsetX, Area_To_Spawn_In.transform.position.x + OffsetX),
+            Random.Range(Area_To_Spawn_In.transform.position.y - OffsetX, Area_To_Spawn_In.transform.position.y + OffsetY)));
         }
-
-        
     }
 
     void FixedUpdate()
@@ -60,12 +59,12 @@ public class Mob_Spawn_Area0Spawning_Enemies : MonoBehaviour
 
     IEnumerator Spawning()
     {
-        yield return new WaitForSeconds(Time_Beetwen_Trying_To_Spawn);
         if (enemies.Count < Max_Enemies_In){enemies.Add(Instantiate(Spawn()));
         }
         for (int a = 0; a < enemies.Count; a++)
         {
-            if(enemies[a]==null)
+            yield return new WaitForSeconds(Time_Beetwen_Trying_To_Spawn);
+            if (enemies[a]==null)
             { 
                 enemies[a] = Instantiate(Spawn());
             }
